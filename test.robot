@@ -17,4 +17,4 @@ TEST WEB APP
     CREATE ACCOUNT
     CHECK ADDRESS
     SIGN OUT
-    Sleep    10
+
