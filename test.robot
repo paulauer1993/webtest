@@ -1,6 +1,4 @@
 
-
-
 *** Settings ***
 Library    webtest.py
 
