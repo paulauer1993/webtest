@@ -10,7 +10,7 @@ from webtestlib import driver as webapp
 @keyword("OPEN BROWSER")
 def open_browser():
     """
-    :goal: Opens the browser at the address
+    :goal: Opens the browser at the specific address
     :return: None
     """
     webapp.get("http://automationpractice.com/index.php")
@@ -37,7 +37,7 @@ def sign_in():
     # Click Sign in
     webtestlib.click_button("header_user_info")
     # Enter Email
-    webtestlib.write_to_text_box("email_create", "aft@dks.com")
+    webtestlib.write_to_text_box("email_create", "alexa.smith@hello.com")
     # Click Submit
     webtestlib.submit("SubmitCreate")
 
@@ -77,14 +77,19 @@ def check_address():
     :return: None
     """
     webtestlib.click_span("//span[text()='My addresses']")
+
+    # Get all the items from the My Addresses table
     read_address = webtestlib.get_div_table_text('//*[@id="center_column"]/div[1]/div/div')
 
+    # Items that were initially entered into the form
     address_to_check = ["5th Avenue, no. 3423", "New York, Massachusetts 55012", "United States"]
 
+    # Checking if the items entered into the form exist inside the table
     for item in address_to_check:
         if item not in read_address:
-            raise Exception(f"The addresses were not successfully confirmed!"
-                            f"Missing {item} in {read_address}")
+            logger.warn(f"Missing {item} in {read_address}")
+            raise Exception(f"The addresses were not successfully confirmed!")
+
 
 @keyword("SIGN OUT")
 def sign_out():
@@ -94,6 +99,7 @@ def sign_out():
     """
     webtestlib.click_button("logout")
     time.sleep(5)
+
 
 if __name__ == '__main__':
     open_browser()

@@ -21,7 +21,7 @@ def click_button(name):
 
 def write_to_text_box(textbox, text_to_write):
     """
-    :goal: searches textbox by id
+    :goal: searches textbox by id and writes to them
     :param textbox: textbox to be searched
     :type textbox: str
     :param text_to_write: text to be entered in textbox
@@ -59,7 +59,7 @@ def click_radio_button(value):
 
 def drop_box_navigate(dropbox, value):
     """
-    :goal: navigates dropboxes by id
+    :goal: navigates drop-boxes by id
     :param dropbox: dropbox's id
     :type dropbox: str
     :param value: value to be entered
